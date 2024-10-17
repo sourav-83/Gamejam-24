@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddaa2a5bxrf5p"]
+
+[ext_resource type="Script" path="res://policecar.gd" id="1_ce8ky"]
+[ext_resource type="Texture2D" uid="uid://dihosn6w78f5l" path="res://polic_car-removebg-preview.png" id="2_raib0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u48d5"]
+size = Vector2(169.026, 477.675)
+
+[node name="Policecar" type="CharacterBody2D"]
+position = Vector2(584, -328)
+script = ExtResource("1_ce8ky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.402305, 0.410321)
+shape = SubResource("RectangleShape2D_u48d5")
+
+[node name="Carsprite" type="Sprite2D" parent="."]
+position = Vector2(6.10352e-05, 0)
+scale = Vector2(0.400802, 0.410321)
+texture = ExtResource("2_raib0")

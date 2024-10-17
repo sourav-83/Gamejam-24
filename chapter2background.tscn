@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://g2cr3qqcmibi"]
+
+[ext_resource type="Script" path="res://chapter_2_background.gd" id="1_5w0x3"]
+[ext_resource type="Texture2D" uid="uid://bc6yplmt2xi6r" path="res://chap2 background.jpg" id="2_1ggsq"]
+[ext_resource type="Texture2D" uid="uid://3neli38eubrv" path="res://chap2_background_text.jpg" id="3_2inex"]
+
+[node name="Chapter2Background" type="Node2D"]
+script = ExtResource("1_5w0x3")
+
+[node name="first" type="Sprite2D" parent="."]
+position = Vector2(580, 320)
+scale = Vector2(1.07407, 1.06489)
+texture = ExtResource("2_1ggsq")
+
+[node name="second" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(582, 320)
+scale = Vector2(1.07037, 1.05263)
+texture = ExtResource("3_2inex")

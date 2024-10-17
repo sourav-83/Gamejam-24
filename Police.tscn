@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://clq3m66dbnki"]
+
+[ext_resource type="Texture2D" uid="uid://bwl8iyhvjoppb" path="res://police.png" id="1_04pbl"]
+[ext_resource type="Script" path="res://police.gd" id="2_32fxh"]
+
+[node name="Police" type="Sprite2D"]
+rotation = 3.14159
+texture = ExtResource("1_04pbl")
+script = ExtResource("2_32fxh")

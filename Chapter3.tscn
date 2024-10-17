@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://cqgboyuo5dh2y"]
+
+[ext_resource type="Script" path="res://chapter_3.gd" id="1_8xepb"]
+[ext_resource type="Texture2D" uid="uid://cmynydcqh0dit" path="res://road2.jpg" id="1_c227p"]
+[ext_resource type="PackedScene" uid="uid://clq3m66dbnki" path="res://Police.tscn" id="2_jxgk7"]
+[ext_resource type="Texture2D" uid="uid://ca3clinabnhv4" path="res://chap3player.png" id="3_816om"]
+[ext_resource type="Script" path="res://wall.gd" id="5_fanrn"]
+[ext_resource type="AudioStream" uid="uid://3j8a05g1cpgq" path="res://sadmusic.mp3" id="6_befe0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v2xd"]
+size = Vector2(48, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkr1p"]
+size = Vector2(42, 712)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5uqv5"]
+font_size = 38
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2hjjx"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Chapter3" type="Node2D"]
+script = ExtResource("1_8xepb")
+
+[node name="Road2" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.44, 0.989313)
+texture = ExtResource("1_c227p")
+
+[node name="Police" parent="." instance=ExtResource("2_jxgk7")]
+position = Vector2(880, 88)
+scale = Vector2(0.451947, 0.530003)
+
+[node name="Police2" parent="." instance=ExtResource("2_jxgk7")]
+position = Vector2(976, 232)
+scale = Vector2(0.451947, 0.530003)
+
+[node name="Police3" parent="." instance=ExtResource("2_jxgk7")]
+position = Vector2(768, 336)
+scale = Vector2(0.451947, 0.530003)
+
+[node name="Police4" parent="." instance=ExtResource("2_jxgk7")]
+position = Vector2(1048, 440)
+scale = Vector2(0.451947, 0.530003)
+
+[node name="Police5" parent="." instance=ExtResource("2_jxgk7")]
+position = Vector2(944, 560)
+scale = Vector2(0.451947, 0.530003)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(104, 384)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(51.5, -58.25)
+scale = Vector2(0.669048, 0.438552)
+texture = ExtResource("3_816om")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-40, -64)
+shape = SubResource("RectangleShape2D_0v2xd")
+
+[node name="RedBar" type="ColorRect" parent="."]
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 416.0
+offset_bottom = 56.0
+color = Color(1, 0, 0, 1)
+
+[node name="GreenBar" type="ColorRect" parent="."]
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 416.0
+offset_bottom = 56.0
+color = Color(0, 1, 0, 1)
+
+[node name="Wall" type="StaticBody2D" parent="."]
+script = ExtResource("5_fanrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-16, 316)
+shape = SubResource("RectangleShape2D_wkr1p")
+
+[node name="Screen" type="ColorRect" parent="."]
+visible = false
+z_index = 100
+offset_left = -48.0
+offset_top = -40.0
+offset_right = 1168.0
+offset_bottom = 688.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Screen"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 80.0
+offset_right = 1128.0
+offset_bottom = 416.0
+text = "Congrats you took all the bullets
+
+
+In this way Abu Sayed saved Bangladesh standing infront of it just like the opening picture by taking all the bullets inside him."
+label_settings = SubResource("LabelSettings_5uqv5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Back" type="Button" parent="Screen"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 552.0
+offset_right = 464.0
+offset_bottom = 616.0
+text = "Back to Chapters"
+
+[node name="Respawn" type="Button" parent="Screen"]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 544.0
+offset_right = 1000.0
+offset_bottom = 608.0
+text = "Retry"
+
+[node name="Label" type="Label" parent="."]
+z_index = 10
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 120.0
+offset_bottom = 47.0
+text = "HEALTH"
+label_settings = SubResource("LabelSettings_2hjjx")
+
+[node name="Sadmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_befe0")
+autoplay = true
+
+[connection signal="pressed" from="Screen/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Screen/Respawn" to="." method="_on_respawn_pressed"]

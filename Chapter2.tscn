@@ -1,0 +1,243 @@
+[gd_scene load_steps=13 format=3 uid="uid://dvkohy35nwo7r"]
+
+[ext_resource type="Texture2D" uid="uid://cit4o64x6ayd4" path="res://Road.jpg" id="1_gji75"]
+[ext_resource type="Script" path="res://chapter_2.gd" id="1_t1vdm"]
+[ext_resource type="Texture2D" uid="uid://dr4errsteaj6f" path="res://car.png" id="2_pmpuy"]
+[ext_resource type="Script" path="res://car.gd" id="3_x52xt"]
+[ext_resource type="PackedScene" uid="uid://ddaa2a5bxrf5p" path="res://policecar.tscn" id="6_s0yxp"]
+[ext_resource type="Texture2D" uid="uid://d385yuor7weac" path="res://policeman-removebg-preview.png" id="7_a2f0w"]
+[ext_resource type="PackedScene" uid="uid://cymk64riludxd" path="res://fire.tscn" id="7_g86y2"]
+[ext_resource type="AudioStream" uid="uid://db81n14vm2gr4" path="res://police-siren-water-cannon-tear-gas-people-coughing-and-protesters-throwing-stones-at-the-police-during-the-chilean-uprising-november-2019-24871.mp3" id="8_jxxfy"]
+[ext_resource type="AudioStream" uid="uid://csb6ku4a2q6qa" path="res://sniper-rifle-firing-shot-1-39789.mp3" id="9_p1tmi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u48d5"]
+size = Vector2(203.825, 453.303)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lxrpc"]
+font_size = 78
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq7wx"]
+size = Vector2(8044.96, 10.2684)
+
+[node name="Chapter2" type="Node2D"]
+position = Vector2(8, 0)
+script = ExtResource("1_t1vdm")
+
+[node name="Road" type="Sprite2D" parent="."]
+position = Vector2(520, 427)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road2" type="Sprite2D" parent="."]
+position = Vector2(520, -360)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road3" type="Sprite2D" parent="."]
+position = Vector2(520, -6624)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road4" type="Sprite2D" parent="."]
+position = Vector2(520, -5840)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road5" type="Sprite2D" parent="."]
+position = Vector2(520, -4272)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road6" type="Sprite2D" parent="."]
+position = Vector2(520, -5056)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road7" type="Sprite2D" parent="."]
+position = Vector2(520, -3488)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road8" type="Sprite2D" parent="."]
+position = Vector2(520, -2704)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road9" type="Sprite2D" parent="."]
+position = Vector2(520, -1920)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road10" type="Sprite2D" parent="."]
+position = Vector2(520, -1144)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Car" type="CharacterBody2D" parent="."]
+z_index = 100
+position = Vector2(560, 576)
+script = ExtResource("3_x52xt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
+position = Vector2(7, -13)
+scale = Vector2(0.402305, 0.410321)
+shape = SubResource("RectangleShape2D_u48d5")
+
+[node name="Carsprite" type="Sprite2D" parent="Car"]
+position = Vector2(7.99988, -8)
+scale = Vector2(0.400802, 0.410321)
+texture = ExtResource("2_pmpuy")
+
+[node name="Camera2D" type="Camera2D" parent="Car"]
+position = Vector2(8, -224)
+scale = Vector2(0.402305, 0.410321)
+
+[node name="BlackScreen" type="ColorRect" parent="Car"]
+visible = false
+z_index = 100
+offset_left = -576.0
+offset_top = -552.0
+offset_right = 592.0
+offset_bottom = 104.0
+color = Color(0.000113828, 0.000113828, 0.000113828, 1)
+
+[node name="Label" type="Label" parent="Car/BlackScreen"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 64.0
+offset_right = 945.0
+offset_bottom = 272.0
+text = "HEROES NEVER DIE"
+label_settings = SubResource("LabelSettings_lxrpc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Respawn" type="Button" parent="Car/BlackScreen"]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 491.0
+offset_right = 896.0
+offset_bottom = 579.0
+text = "Retry"
+
+[node name="Back" type="Button" parent="Car/BlackScreen"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 491.0
+offset_right = 432.0
+offset_bottom = 579.0
+text = "Back to Chapters"
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(384, 280)
+scale = Vector2(1.55814, 1.2634)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-51.3432, -3601.39)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_sq7wx")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(384, 280)
+scale = Vector2(1.55814, 1.2634)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(225.91, -2653.16)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_sq7wx")
+
+[node name="Policecar" parent="." instance=ExtResource("6_s0yxp")]
+
+[node name="Policecar2" parent="." instance=ExtResource("6_s0yxp")]
+position = Vector2(512, -1240)
+
+[node name="Policecar3" parent="." instance=ExtResource("6_s0yxp")]
+position = Vector2(384, -2232)
+rotation = -0.24158
+
+[node name="Policecar4" parent="." instance=ExtResource("6_s0yxp")]
+position = Vector2(592, -4464)
+rotation = -0.24158
+
+[node name="Policecar5" parent="." instance=ExtResource("6_s0yxp")]
+z_index = 3
+position = Vector2(424, -6936)
+rotation = -0.24158
+
+[node name="Policecar6" parent="." instance=ExtResource("6_s0yxp")]
+position = Vector2(560, -6464)
+rotation = -0.24158
+
+[node name="Policeman" type="Sprite2D" parent="."]
+visible = false
+z_index = 50
+position = Vector2(992, -832)
+scale = Vector2(0.141326, 0.122177)
+texture = ExtResource("7_a2f0w")
+
+[node name="Road11" type="Sprite2D" parent="."]
+position = Vector2(520, -7392)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Fire" parent="." instance=ExtResource("7_g86y2")]
+
+[node name="Fire2" parent="." instance=ExtResource("7_g86y2")]
+position = Vector2(616, -856)
+
+[node name="Fire3" parent="." instance=ExtResource("7_g86y2")]
+position = Vector2(440, -2776)
+
+[node name="Fire4" parent="." instance=ExtResource("7_g86y2")]
+position = Vector2(616, -5576)
+
+[node name="Fire5" parent="." instance=ExtResource("7_g86y2")]
+position = Vector2(376, -7984)
+
+[node name="Road12" type="Sprite2D" parent="."]
+position = Vector2(520, -8176)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road11" type="Sprite2D" parent="Road12"]
+position = Vector2(520, -7408)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road13" type="Sprite2D" parent="."]
+position = Vector2(520, -8960)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="Road11" type="Sprite2D" parent="Road13"]
+position = Vector2(520, -7408)
+scale = Vector2(1.55814, 1.2634)
+texture = ExtResource("1_gji75")
+region_rect = Rect2(0, 0, 389.488, 1192)
+
+[node name="siren" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jxxfy")
+volume_db = -8.577
+autoplay = true
+
+[node name="sniper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_p1tmi")
+
+[connection signal="pressed" from="Car/BlackScreen/Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="Car/BlackScreen/Back" to="." method="_on_back_pressed"]

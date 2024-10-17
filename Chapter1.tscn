@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwhva2m65fher"]
+
+[ext_resource type="Texture2D" uid="uid://b6hv46u33jcao" path="res://DALLE-2024-10-14-22.17.45-A-stack-of-vintage-newspapers-from-1971-with-bold-headlines-about-the-Pakistani-military-attacking-Bangladeshis-during-the-Liberation-War-of-Banglade.webp" id="1_0kebx"]
+[ext_resource type="Script" path="res://chapter_1.gd" id="1_bmau5"]
+[ext_resource type="Texture2D" uid="uid://mpf12hvfkjrg" path="res://chap1_game_background.jpg" id="3_p7x6x"]
+[ext_resource type="AudioStream" uid="uid://csb6ku4a2q6qa" path="res://sniper-rifle-firing-shot-1-39789.mp3" id="4_f3vqn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_es6rp"]
+font_size = 32
+font_color = Color(0, 1, 0, 1)
+
+[node name="Chapter1" type="Node2D"]
+script = ExtResource("1_bmau5")
+
+[node name="init_background" type="Sprite2D" parent="."]
+visible = false
+z_index = 100
+position = Vector2(576, 316)
+scale = Vector2(1.125, 0.617187)
+texture = ExtResource("1_0kebx")
+
+[node name="Text" type="Label" parent="init_background"]
+offset_left = -441.0
+offset_top = -745.0
+offset_right = 448.0
+offset_bottom = 745.0
+text = "Pakistanis have started attacking Bangladeshis. In a small
+village in sherpur conversation between a young boy
+Saleh and an old guy
+-Kire, Saleh, palabi na?
+--Na ami palamu na, ami zuddho korbo
+and that young boy with a gun in his hand started to run
+towards the jungle"
+label_settings = SubResource("LabelSettings_es6rp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="gamebg" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(576, 318)
+scale = Vector2(0.5625, 0.310547)
+texture = ExtResource("3_p7x6x")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Healthbar" type="ColorRect" parent="."]
+z_index = -100
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 288.0
+offset_bottom = 48.0
+color = Color(0, 1, 0, 1)
+
+[node name="over" type="ColorRect" parent="."]
+visible = false
+z_index = 100
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 1168.0
+offset_bottom = 664.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="over"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 88.0
+offset_right = 888.0
+offset_bottom = 232.0
+
+[node name="Respawn" type="Button" parent="over"]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 480.0
+offset_right = 992.0
+offset_bottom = 560.0
+text = "Retry"
+
+[node name="Back" type="Button" parent="over"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 480.0
+offset_right = 544.0
+offset_bottom = 560.0
+text = "Back
+"
+
+[node name="gunsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_f3vqn")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="over/Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="over/Back" to="." method="_on_back_pressed"]

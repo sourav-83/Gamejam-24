@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://00n76c2ytefh"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_stq42"]
+[ext_resource type="Texture2D" uid="uid://swcka2xrl5di" path="res://main_background.jpg" id="2_4iiem"]
+[ext_resource type="AudioStream" uid="uid://cfevxb3sibw5y" path="res://relaxing-piano-music-248868.mp3" id="3_008m7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ud542"]
+font_size = 32
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_stq42")
+
+[node name="MainBackground" type="Sprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(1.06667, 1.01749)
+texture = ExtResource("2_4iiem")
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 88.0
+offset_top = 56.0
+offset_right = 328.0
+offset_bottom = 168.0
+
+[node name="Label" type="Label" parent="PlayButton"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 176.0
+offset_bottom = 80.0
+text = "Play"
+label_settings = SubResource("LabelSettings_ud542")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsButton" type="Button" parent="."]
+offset_left = 408.0
+offset_top = 56.0
+offset_right = 648.0
+offset_bottom = 168.0
+
+[node name="Label" type="Label" parent="CreditsButton"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 176.0
+offset_bottom = 80.0
+text = "Credits"
+label_settings = SubResource("LabelSettings_ud542")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 232.0
+offset_top = 208.0
+offset_right = 472.0
+offset_bottom = 320.0
+
+[node name="Label" type="Label" parent="QuitButton"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 176.0
+offset_bottom = 80.0
+text = "Quit
+"
+label_settings = SubResource("LabelSettings_ud542")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Relaxing-piano-music-248868" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_008m7")
+autoplay = true
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_button_3_pressed"]

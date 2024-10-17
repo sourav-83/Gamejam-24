@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh6gkyd2mnejm"]
+
+[ext_resource type="Script" path="res://quiz.gd" id="1_o0fkx"]
+[ext_resource type="Texture2D" uid="uid://ckm5hfg02g45m" path="res://quiz_background.jpg" id="1_otemg"]
+[ext_resource type="AudioStream" uid="uid://vccfjkee73og" path="res://quiz-evaluation-loop-thinking-time-231582.mp3" id="3_o7fok"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_70r2k"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_q0c55"]
+font_size = 48
+
+[node name="Quiz" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_o0fkx")
+
+[node name="quiz_background" type="Sprite2D" parent="."]
+position = Vector2(575.5, 321)
+scale = Vector2(1.08876, 1.07047)
+texture = ExtResource("1_otemg")
+
+[node name="QuestionLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 74.0
+offset_right = 886.0
+offset_bottom = 165.0
+label_settings = SubResource("LabelSettings_70r2k")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="OptionButton1" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 128.0
+offset_top = 312.0
+offset_right = 515.0
+offset_bottom = 393.0
+
+[node name="OptionButton2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 640.0
+offset_top = 312.0
+offset_right = 1027.0
+offset_bottom = 393.0
+
+[node name="OptionButton3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 120.0
+offset_top = 457.0
+offset_right = 507.0
+offset_bottom = 538.0
+
+[node name="OptionButton4" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 640.0
+offset_top = 457.0
+offset_right = 1027.0
+offset_bottom = 538.0
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 688.0
+offset_top = 560.0
+offset_right = 912.0
+offset_bottom = 600.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FeedbackLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 568.0
+offset_right = 544.0
+offset_bottom = 607.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 64.0
+
+[node name="FinalScore" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 304.0
+offset_top = 272.0
+offset_right = 864.0
+offset_bottom = 384.0
+label_settings = SubResource("LabelSettings_q0c55")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quiz-evaluation-loop-thinking-time-231582" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_o7fok")
+autoplay = true

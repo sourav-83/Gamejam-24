@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpnmmmrcyttub"]
+
+[ext_resource type="Texture2D" uid="uid://h1puuxacj3xr" path="res://enemy.png" id="1_aq3pw"]
+[ext_resource type="AudioStream" uid="uid://csb6ku4a2q6qa" path="res://sniper-rifle-firing-shot-1-39789.mp3" id="2_0swmk"]
+[ext_resource type="Script" path="res://enemy.gd" id="2_nlset"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ss664"]
+size = Vector2(96, 160)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("2_nlset")
+
+[node name="gunsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0swmk")
+
+[node name="Enemy" type="Sprite2D" parent="."]
+texture = ExtResource("1_aq3pw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-24, 0)
+shape = SubResource("RectangleShape2D_ss664")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

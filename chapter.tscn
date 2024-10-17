@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvwau3qug67f5"]
+
+[ext_resource type="Texture2D" uid="uid://cwx4b0drrnvqm" path="res://chapter_background.jpg" id="1_q0v21"]
+[ext_resource type="AudioStream" uid="uid://dug6wuq4bfumm" path="res://rhythm-of-war-main-7233.mp3" id="2_8o1gf"]
+
+[sub_resource type="GDScript" id="GDScript_r24pf"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_play_button_2_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Chapter1.tscn\") # Replace with function body.
+
+
+func _on_play_button_3_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://chapter2background.tscn\")
+
+
+func _on_backbutton_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Play.tscn\")
+
+
+func _on_play_button_5_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://chapter3background.tscn\")
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dba4"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_43g7n"]
+font_size = 32
+
+[node name="Chapter" type="Node2D"]
+position = Vector2(448, 320)
+script = SubResource("GDScript_r24pf")
+
+[node name="ChapterBackground" type="Sprite2D" parent="."]
+position = Vector2(128, -4.23855e-06)
+scale = Vector2(1.8, 1.77778)
+texture = ExtResource("1_q0v21")
+
+[node name="PlayButton2" type="Button" parent="."]
+offset_left = 376.0
+offset_top = -56.0
+offset_right = 600.0
+offset_bottom = 56.0
+
+[node name="Label" type="Label" parent="PlayButton2"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 168.0
+offset_bottom = 80.0
+text = "Story 3"
+label_settings = SubResource("LabelSettings_4dba4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton3" type="Button" parent="."]
+offset_left = 32.0
+offset_top = -56.0
+offset_right = 256.0
+offset_bottom = 56.0
+
+[node name="Label" type="Label" parent="PlayButton3"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 168.0
+offset_bottom = 80.0
+text = "Story 2"
+label_settings = SubResource("LabelSettings_4dba4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton5" type="Button" parent="."]
+offset_left = -272.0
+offset_top = -56.0
+offset_right = -48.0
+offset_bottom = 56.0
+
+[node name="Label" type="Label" parent="PlayButton5"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 168.0
+offset_bottom = 80.0
+text = "Story 1"
+label_settings = SubResource("LabelSettings_4dba4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Backbutton" type="Button" parent="."]
+offset_left = -416.0
+offset_top = 240.0
+offset_right = -264.0
+offset_bottom = 304.0
+
+[node name="Label" type="Label" parent="Backbutton"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 56.0
+text = "Back"
+label_settings = SubResource("LabelSettings_43g7n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rhythm-of-war-main-7233" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8o1gf")
+autoplay = true
+
+[connection signal="pressed" from="PlayButton2" to="." method="_on_play_button_2_pressed"]
+[connection signal="pressed" from="PlayButton3" to="." method="_on_play_button_3_pressed"]
+[connection signal="pressed" from="PlayButton5" to="." method="_on_play_button_5_pressed"]
+[connection signal="pressed" from="Backbutton" to="." method="_on_backbutton_pressed"]
