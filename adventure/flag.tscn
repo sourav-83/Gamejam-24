@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn24bj7jdwoey"]
+
+[ext_resource type="Texture2D" uid="uid://bkg48knmygnr3" path="res://adventure/assets/others/flag-removebg-preview.png" id="1_2ciqq"]
+[ext_resource type="Script" path="res://adventure/flag.gd" id="1_ba8vr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhkpo"]
+atlas = ExtResource("1_2ciqq")
+region = Rect2(0, 0, 82, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvm46"]
+atlas = ExtResource("1_2ciqq")
+region = Rect2(0, 67, 82, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c2n2"]
+atlas = ExtResource("1_2ciqq")
+region = Rect2(0, 134, 82, 67)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eo0v8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhkpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvm46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c2n2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Flag" type="Area2D"]
+script = ExtResource("1_ba8vr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eo0v8")
+autoplay = "default"
+frame_progress = 0.0641374
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

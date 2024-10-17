@@ -1,0 +1,76 @@
+[gd_scene load_steps=15 format=3 uid="uid://dj5nn2mkoeic6"]
+
+[ext_resource type="Script" path="res://adventure/police.gd" id="1_brgp1"]
+[ext_resource type="Texture2D" uid="uid://qmuvqd20iaju" path="res://adventure/assets/others/pphase-removebg-preview_resized.png" id="1_q0x7y"]
+[ext_resource type="Texture2D" uid="uid://dp8ps5iqagwoc" path="res://adventure/assets/others/pphase2-removebg-preview_resized.png" id="2_2w21x"]
+[ext_resource type="Texture2D" uid="uid://ftjfi6ivbylb" path="res://adventure/assets/others/pphase3-removebg-preview-_resized.png" id="3_stl3b"]
+[ext_resource type="Texture2D" uid="uid://b4eg1hk4gr853" path="res://adventure/assets/others/pphase4-removebg-preview_resized.png" id="4_hh443"]
+[ext_resource type="Texture2D" uid="uid://coxc64iq0ehln" path="res://adventure/assets/others/pphase5-removebg-preview_resized.png" id="5_0fl8y"]
+[ext_resource type="PackedScene" uid="uid://ty3v2hoqbn0a" path="res://adventure/scenes/killzone.tscn" id="6_cgvo6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6meq"]
+atlas = ExtResource("1_q0x7y")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfe6d"]
+atlas = ExtResource("2_2w21x")
+region = Rect2(0, 0, 34, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3idy8"]
+atlas = ExtResource("3_stl3b")
+region = Rect2(0, 0, 30, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wyub"]
+atlas = ExtResource("4_hh443")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ehno"]
+atlas = ExtResource("5_0fl8y")
+region = Rect2(0, 0, 24, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkpfk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6meq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfe6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3idy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wyub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ehno")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbk2e"]
+size = Vector2(21, 34)
+
+[node name="Police" type="Node2D"]
+script = ExtResource("1_brgp1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jkpfk")
+autoplay = "default"
+frame_progress = 0.0833434
+flip_h = true
+
+[node name="killzone" parent="AnimatedSprite2D" instance=ExtResource("6_cgvo6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/killzone"]
+position = Vector2(0.5, 7)
+shape = SubResource("RectangleShape2D_tbk2e")
+
+[node name="RayCastright" type="RayCast2D" parent="."]
+target_position = Vector2(12, 15)
+
+[node name="RayCastleft" type="RayCast2D" parent="."]
+target_position = Vector2(-11, 16)

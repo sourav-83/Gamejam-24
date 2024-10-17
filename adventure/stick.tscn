@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2e10niyc8p4a"]
+
+[ext_resource type="Texture2D" uid="uid://536ocjfa3264" path="res://adventure/assets/others/stick.jpg" id="1_veg1c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gasso"]
+atlas = ExtResource("1_veg1c")
+region = Rect2(24, 0, 8, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38c74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gasso")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35r7k"]
+size = Vector2(8, 90)
+
+[node name="stick" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_38c74")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_35r7k")

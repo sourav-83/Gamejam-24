@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://coqqv34sonoms"]
+
+[ext_resource type="Script" path="res://black_screen.gd" id="1_b31kg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_olvgk"]
+font_size = 20
+font_color = Color(1, 0, 0, 1)
+
+[node name="BlackScreen" type="ColorRect"]
+z_index = 100
+offset_left = 8.0
+offset_right = 1184.0
+offset_bottom = 656.0
+color = Color(0.000113828, 0.000113828, 0.000113828, 1)
+script = ExtResource("1_b31kg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 96.0
+offset_right = 802.0
+offset_bottom = 186.0
+text = "HEROES NEVER DIE"
+label_settings = SubResource("LabelSettings_olvgk")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Respawn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 448.0
+offset_right = 968.0
+offset_bottom = 536.0
+text = "Retry"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 448.0
+offset_right = 408.0
+offset_bottom = 536.0
+text = "Back to Chapters"
+
+[node name="Coinlabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 232.0
+offset_right = 802.0
+offset_bottom = 322.0
+label_settings = SubResource("LabelSettings_olvgk")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
